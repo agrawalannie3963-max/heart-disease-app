@@ -78,19 +78,7 @@ with st.sidebar:
         value=5
     )
 
-    try:
-        df_raw=pd.read_excel("heart_disease_uci.xls")
-
-except FileNotFoundError:
-    st.error(
-        "heart_disease_uci.xls ko app.py ke same "
-        "folder mein rakho ya sidebar se upload karo."
-    )
-    st.stop()
-
-except Exception as e:
-    st.error(f"Dataset loading error: {e}")
-    st.stop()
+df_raw=pd.read_excel("heart_disease_uci.xls")
 
 if df_raw.empty:
     st.error("Dataset empty hai.")
