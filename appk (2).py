@@ -78,7 +78,7 @@ with st.sidebar:
         value=5
     )
 
-df_raw=pd.read_excel("heart_disease_uci.xls")
+df_raw=pd.read_csv("heart_disease_uci.xls")
 
 if df_raw.empty:
     st.error("Dataset empty hai.")
