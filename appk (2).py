@@ -78,21 +78,12 @@ with st.sidebar:
         value=5
     )
 
-    uploaded = st.file_uploader(
-        "Upload Heart Disease CSV",
-        type=["csv"]
-    )
-
-# Load dataset
-try:
-    if uploaded is not None:
-        df_raw = pd.read_csv(uploaded)
-    else:
-        df_raw = pd.read_csv("heart_disease_uci.csv")
+    try:
+        df_raw=pd.read_excel("heart_disease_uci.xls")
 
 except FileNotFoundError:
     st.error(
-        "heart_disease_uci.csv ko app.py ke same "
+        "heart_disease_uci.xls ko app.py ke same "
         "folder mein rakho ya sidebar se upload karo."
     )
     st.stop()
