@@ -77,7 +77,7 @@ with st.sidebar:
         max_value=10,
         value=5
     )
-    st.markdown('### upload dataset")
+    st.markdown("### upload dataset")
     uploaded=st.file_uploader(
         "upload Heart Disease CSV",
         type["csv","xlsx"]
