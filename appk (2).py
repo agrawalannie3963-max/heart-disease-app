@@ -77,12 +77,14 @@ with st.sidebar:
         max_value=10,
         value=5
     )
-    st.markdown("### upload dataset")
-    uploaded=st.file_uploader(
-        "upload Heart Disease CSV",
-        type["csv","xlsx"]
+     # Load dataset
+    st.markdown("### 📂 Upload Dataset")
+
+    uploaded = st.file_uploader(
+        "Choose your dataset file",
+        type=["csv", "xlsx"],
+        key="dataset_upload"
     )
-    # Load dataset
 try:
     if uploaded is not None:
         if uploaded.name.endswith(".csv"):
