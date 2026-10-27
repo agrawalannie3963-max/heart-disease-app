@@ -85,20 +85,21 @@ with st.sidebar:
         type=["csv", "xlsx"],
         key="dataset_upload"
     )
+# Load uploaded dataset
 try:
     if uploaded is not None:
-        if uploaded.name.endswith(".csv"):
+        if uploaded.name.lower().endswith(".csv"):
             df_raw = pd.read_csv(uploaded)
         else:
             df_raw = pd.read_excel(uploaded)
     else:
-        df_raw = pd.read_csv("heart_disease_uci.csv")
-except FikeNOtFoundError:
-  st.error("Dataset file nahi mili. please upload a CSV file.")
-  st.stop()
+        st.info("Please upload your dataset using the sidebar.")
+        st.stop()
+
 except Exception as e:
-   st.error(f"Dataset loading error: {e}")
-   st.stop()
+    st.error(f"Dataset loading error: {e}")
+    st.stop()
+
 if df_raw.empty:
     st.error("Dataset empty hai.")
     st.stop()
