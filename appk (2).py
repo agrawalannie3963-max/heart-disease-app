@@ -77,9 +77,26 @@ with st.sidebar:
         max_value=10,
         value=5
     )
-
-df_raw=pd.read_csv("heart_disease_uci.xls")
-
+    st.markdown('### upload dataset")
+    uploaded=st.file_uploader(
+        "upload Heart Disease CSV",
+        type["csv","xlsx"]
+    )
+    # Load dataset
+try:
+    if uploaded is not None:
+        if uploaded.name.endswith(".csv"):
+            df_raw = pd.read_csv(uploaded)
+        else:
+            df_raw = pd.read_excel(uploaded)
+    else:
+        df_raw = pd.read_csv("heart_disease_uci.csv")
+except FikeNOtFoundError:
+  st.error("Dataset file nahi mili. please upload a CSV file.")
+  st.stop()
+except Exception as e:
+   st.error(f"Dataset loading error: {e}")
+   st.stop()
 if df_raw.empty:
     st.error("Dataset empty hai.")
     st.stop()
