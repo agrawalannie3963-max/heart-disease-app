@@ -178,7 +178,7 @@ tab1, tab2, tab3 = st.tabs([
 with tab1:
     st.subheader("📈 Project Overview")
 
-    c1, c2, c3, c4 = st.columns(5)
+    c1, c2, c3, c4, c5= st.columns(5)
 
     metrics = [
         (c1, len(df_model), "Total Records"),
