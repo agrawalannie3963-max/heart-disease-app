@@ -184,7 +184,7 @@ with tab1:
         (c1, len(df_model), "Total Records"),
         (c2, len(df_model.columns), "Features"),
         (c3, k, "Clusters"),
-        (c4, f"{score:.3f}" if np.isfinite(score) else "N/A", "Silhouette Score")
+        (c4, f"{score:.3f}" if np.isfinite(score) else "N/A", "Silhouette Score"),
         (c5, "97.5%", "Accuracy")
     ]
 
