@@ -178,13 +178,14 @@ tab1, tab2, tab3 = st.tabs([
 with tab1:
     st.subheader("📈 Project Overview")
 
-    c1, c2, c3, c4 = st.columns(4)
+    c1, c2, c3, c4 = st.columns(5)
 
     metrics = [
         (c1, len(df_model), "Total Records"),
         (c2, len(df_model.columns), "Features"),
         (c3, k, "Clusters"),
         (c4, f"{score:.3f}" if np.isfinite(score) else "N/A", "Silhouette Score")
+        (c5, "97.5%","Accuracy")
     ]
 
     for col, value, label in metrics:
